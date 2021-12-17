@@ -12,8 +12,10 @@ function App() {
      })
     const data = await response.json()
     const main = data.text.split('\n\n')
-    setText(main)
     setLoading(true)
+    setText(main)
+    setLoading(false)
+    
   }
 
   // useEffect(()=> someFunction(),[])
@@ -22,11 +24,7 @@ function App() {
   
   const handleSubmit = (event) => {
   event.preventDefault();
-
-    
     someFunction()
-    setLoading(false)
-  
   }
   
   

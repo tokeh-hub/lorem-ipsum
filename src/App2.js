@@ -4,7 +4,7 @@ import './App.css';
 function App() {
   const [number,setNumber] = useState(0);
   const [text,setText] = useState([])
-  const[loading,setLoading] = useState(true)
+  const[loading,setLoading] = useState(false)
 
   const someFunction = async () =>{
     const response = await fetch(`https://veli-cors.glitch.me/text-gen?length=${number <= 0 ? 0-5 : number }`, {
@@ -13,6 +13,7 @@ function App() {
     const data = await response.json()
     const main = data.text.split('\n\n')
     setText(main)
+    setLoading(true)
   }
 
   // useEffect(()=> someFunction(),[])
@@ -21,6 +22,7 @@ function App() {
   
   const handleSubmit = (event) => {
   event.preventDefault();
+
     
     someFunction()
     setLoading(false)

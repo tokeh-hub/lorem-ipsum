@@ -7,7 +7,7 @@ function App() {
   const[loading,setLoading] = useState(false)
 
   const someFunction = async () =>{
-    const response = await fetch(`https://veli-cors.glitch.me/text-gen?length=${number <= 0 ? 1 : number }`, {
+    const response = await fetch(`https://veli-cors.glitch.me/text-gen?length=${number <= 0 ? null : number }`, {
       mode: "cors"
      })
     const data = await response.json()
